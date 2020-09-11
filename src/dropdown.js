@@ -1,18 +1,16 @@
 const Dropdown = (() => {
   function toggleDrop() {
-    window.addEventListener("load", () => {
-      const dropLink = document.querySelectorAll(".nav-dropdown");
+    const dropLink = document.querySelectorAll(".nav-dropdown");
 
-      dropLink.forEach((link) => {
-        let dropMenu = link.querySelector(".dropdown-menu");
+    dropLink.forEach((link) => {
+      let dropMenu = link.querySelector(".dropdown-menu");
 
-        link.addEventListener("pointerover", () => {
-          dropMenu.classList.add("is-visible");
-        });
+      link.addEventListener("pointerover", () => {
+        dropMenu.classList.add("is-visible");
+      });
 
-        link.addEventListener("pointerleave", () => {
-          dropMenu.classList.remove("is-visible");
-        });
+      link.addEventListener("pointerleave", () => {
+        dropMenu.classList.remove("is-visible");
       });
     });
   }

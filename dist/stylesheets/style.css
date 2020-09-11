@@ -225,3 +225,37 @@ figure img {
 .slides-wrapper.shifting {
   transition: transform 0.3s ease-in-out;
 }
+
+.container:last-of-type {
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 256px;
+  margin: 0 auto;
+}
+
+.slide-nav {
+  position: absolute;
+  bottom: 15px;
+}
+
+.slide-nav span {
+  display: inline-block;
+  background-color: #a7a7a7;
+  height: 10px;
+  width: 10px;
+  margin: 0 4px;
+  border-radius: 50%;
+}
+
+.slide-btn-left {
+  position: absolute;
+  left: 5px;
+  font-size: 1.5rem;
+}
+
+.slide-btn-right {
+  position: absolute;
+  right: 5px;
+  font-size: 1.5rem;
+}
