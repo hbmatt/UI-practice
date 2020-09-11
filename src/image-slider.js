@@ -17,7 +17,17 @@ const ImageSlider = (() => {
       wrapper.style.transform = `translateX(-${width}px)`;
       let i = 1;
 
-      setInterval(() => {
+      let interval = setInterval(() => startSlides(), 2000);
+
+      wrapper.addEventListener("pointerover", () => {
+        clearInterval(interval);
+      })
+
+      wrapper.addEventListener("pointerleave", () => {
+        interval = setInterval(() => startSlides(), 2000);
+      })
+
+      function startSlides() {
         i++;
         console.log(i);
         wrapper.classList.add("shifting");
@@ -29,7 +39,7 @@ const ImageSlider = (() => {
             wrapper.style.transform = `translateX(-${width * i}px)`;
           }
         });
-      }, 2000);
+      }
     });
   }
 
