@@ -17,21 +17,19 @@ const ImageSlider = (() => {
       wrapper.style.transform = `translateX(-${width}px)`;
       let i = 1;
 
-      if (i < slides.length) {
-        setInterval(() => {
-          wrapper.classList.add("shifting");
-          wrapper.style.transform = `translateX(-${width * i}px)`;
-          i++;
-            
-          if (i === slides.length) {
-            wrapper.classList.remove("shifting");       
-            wrapper.style.transform = "translateX(0px)";              
-            i = 1;
+      setInterval(() => {
+        i++;
+        console.log(i);
+        wrapper.classList.add("shifting");
+        wrapper.style.transform = `translateX(-${width * i}px)`;
+        wrapper.addEventListener("transitionend", () => {
+          if (i === slides.length - 2) {
+            i = 0;
+            wrapper.classList.remove("shifting");
+            wrapper.style.transform = `translateX(-${width * i}px)`;
           }
-        }, 2000);
-      }
-
-      
+        });
+      }, 2000);
     });
   }
 
