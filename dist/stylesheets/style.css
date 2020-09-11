@@ -59,15 +59,25 @@ table {
   text-align: center;
 }
 
-h1 {
+h1, h2 {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 1.5rem;
 }
 
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p {
+  text-align: justify;
+}
+
 .nav-example {
   display: flex;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
 .nav-dropdown {
@@ -100,16 +110,109 @@ h1 {
 .dropdown-menu {
   display: flex;
   flex-direction: column;
+  width: 100%;
   max-height: 0px;
   overflow: hidden;
   transition: max-height 0.7s ease-in-out;
+  position: absolute;
+  top: 100%;
+  z-index: 1;
 }
 
 .navbar-item {
-  cursor: pointer;
   padding: 5px 12px;
+  display: block;
+  background-color: #fff;
 }
 
-.is-visible {
-  max-height: 100%;
+.dropdown-menu.is-visible {
+  max-height: 500%;
+}
+
+.mobile-container {
+  display: flex;
+  justify-content: center;
+}
+
+.mobile-wrapper {
+  width: 350px;
+  height: 560px;
+  box-sizing: content-box;
+  padding: 40px 15px;
+  border: 2px solid #b1b2b1;
+  border-radius: 25px;
+}
+
+.mobile-example {
+  width: 350px;
+  height: 560px;
+  background-color: rgb(123, 84, 84);
+  position: relative;
+  overflow: hidden;
+}
+
+.mobile-content {
+  position: absolute;
+  width: 85%;
+  height: 100%;
+  left: 15%;
+  background-color: #fff;
+  padding: 1rem 1rem 0 1rem;
+  overflow: auto;
+  transition: left 0.4s ease-in-out;
+}
+
+.mobile-content.is-pushed {
+  left: 80%;
+}
+
+.mobile-content figure {
+  width: 100%;
+  height: auto;
+}
+
+figure img {
+  display: block;
+  width: 100%;
+  border-radius: 100%;
+}
+
+.menu {
+  width: 80%;
+  height: 100%;
+  background-color: #EB9486;
+  position: absolute;
+  left: -65%;
+  transition: left 0.4s ease-in-out;
+}
+
+.menu.is-visible {
+  left: 0;
+}
+
+.menu .burger {
+  display: inline-block;
+  width: 3.25rem;
+  height: 3.25rem;
+  font-size: 1.25rem;
+  line-height: 3.25rem;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+}
+
+.menu-items {
+  padding-top: 50%;
+}
+
+.menu-item {
+  display: block;
+  padding: 15px 25px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.menu-item:hover {
+  text-decoration: underline;
 }
