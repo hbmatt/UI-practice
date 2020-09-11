@@ -74,7 +74,7 @@ p {
   text-align: justify;
 }
 
-.nav-example {
+.container {
   display: flex;
   justify-content: center;
   margin-bottom: 2rem;
@@ -127,11 +127,6 @@ p {
 
 .dropdown-menu.is-visible {
   max-height: 500%;
-}
-
-.mobile-container {
-  display: flex;
-  justify-content: center;
 }
 
 .mobile-wrapper {
@@ -215,4 +210,18 @@ figure img {
 
 .menu-item:hover {
   text-decoration: underline;
+}
+
+.slides-frame-container {
+  width: 256px;
+  height: auto;
+  overflow: hidden;
+}
+
+.slides-wrapper {
+  display: flex;
+}
+
+.slides-wrapper.shifting {
+  transition: transform 0.3s ease-in-out;
 }
