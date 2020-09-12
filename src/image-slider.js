@@ -56,21 +56,15 @@ const ImageSlider = (() => {
       clearInterval(interval);
       shiftSlide(1);
       interval = setInterval(() => startSlides(), 2000);
-    });
+    });    
   }
 
   function startSlides() {
     i++;
     wrapper.classList.add("shifting");
     wrapper.style.transform = `translateX(-${width * i}px)`;
-    highlightNav(i - 1);
-    wrapper.addEventListener("transitionend", () => {
-      if (i === slides.length - 2) {
-        i = 0;
-        wrapper.classList.remove("shifting");
-        wrapper.style.transform = `translateX(-${width * i}px)`;
-      } 
-    });
+    (i === slides.length - 1) ? highlightNav(0) : highlightNav(i - 1);
+    wrapper.addEventListener("transitionend", checkIndex);
   }
 
   function reverseSlide() {
@@ -78,13 +72,6 @@ const ImageSlider = (() => {
     wrapper.classList.add("shifting");
     wrapper.style.transform = `translateX(-${width * i}px)`;
     highlightNav(i - 1);
-    wrapper.addEventListener("transitionend", () => {
-      if (i === slides.length - 2) {
-        i = 0;
-        wrapper.classList.remove("shifting");
-        wrapper.style.transform = `translateX(-${width * i}px)`;
-      }
-    });
   }
 
   function highlightNav(index) {
@@ -92,13 +79,23 @@ const ImageSlider = (() => {
     circles[index].classList.add("active");
   }
 
+  const checkIndex = function() {
+    wrapper.classList.remove("shifting");
+    if (i === slides.length - 1) {
+      i = 1;
+      highlightNav(i - 1);
+      wrapper.style.transform = `translateX(-${width * i}px)`;
+    } else if (i <= 0) {
+      i = slides.length - (2 - i);
+      highlightNav(i - 1);
+      wrapper.style.transform = `translateX(-${width * i}px)`;
+    }
+  }
+
   function shiftSlide(dir) {
     if (dir === 1) {
       startSlides();
     } else {
-      if (i <= 1) {
-        i = slides.length - (2 - i);
-      }
       reverseSlide();
     }
   }
