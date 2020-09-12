@@ -248,6 +248,10 @@ figure img {
   border-radius: 50%;
 }
 
+.slide-nav .active {
+  background-color: #fff;
+}
+
 .slide-btn-left {
   position: absolute;
   left: 5px;
