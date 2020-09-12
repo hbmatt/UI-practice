@@ -1,0 +1,1 @@
+Three simple UI interactions (drop-down menu, mobile burger menu, and an image slider) made using vanilla JavaScript.
